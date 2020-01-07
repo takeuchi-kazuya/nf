@@ -1,0 +1,23 @@
+{
+  "name": "auth-data",
+  "version": "1.0.0",
+  "description": "My super-excellent Nuxt.js project",
+  "author": "Kazuya Takeuchi",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/dotenv": "^1.4.1",
+    "cross-env": "^5.2.0",
+    "firebase": "^7.6.1",
+    "fs": "0.0.1-security",
+    "nuxt": "^2.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
