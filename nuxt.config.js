@@ -1,15 +1,15 @@
 const pkg = require("./package");
 
 module.exports = {
-  mode: "universal",
+  // mode: "universal",
+  mode: "spa",
 
   /*
    ** Headers of the page
    */
   head: {
     title: pkg.name,
-    meta: [
-      {
+    meta: [{
         charset: "utf-8"
       },
       {
@@ -22,13 +22,11 @@ module.exports = {
         content: pkg.description
       }
     ],
-    link: [
-      {
-        rel: "icon",
-        type: "image/x-icon",
-        href: "/favicon.ico"
-      }
-    ]
+    link: [{
+      rel: "icon",
+      type: "image/x-icon",
+      href: "/favicon.ico"
+    }]
   },
 
   /*
@@ -41,17 +39,44 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: [],
+  css: [
+    "firebaseui/dist/firebaseui.css",
+    "vuetify/dist/vuetify.min.css"
+  ],
+
+  router: {
+    middleware: ['authenticated']
+  },
 
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ["~/plugins/firebase.js"],
+  plugins: [
+    "~/plugins/firebase.js",
+    "~/plugins/vuetify.js",
+    {
+      src: "~plugins/persistedstate.js",
+      ssr: false
+    }
+  ],
 
   /*
    ** Nuxt.js modules
    */
-  modules: ["@nuxtjs/dotenv"],
+  modules: [
+    "@nuxtjs/dotenv",
+    '@nuxtjs/vuetify'
+  ],
+
+  buildModules: [
+    // Simple usage
+    '@nuxtjs/vuetify',
+
+    // With options
+    ['@nuxtjs/vuetify', {
+      /* module options */
+    }]
+  ],
 
   /*
    ** Build configuration
